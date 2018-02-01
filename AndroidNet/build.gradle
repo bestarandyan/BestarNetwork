@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            buildConfigField("String","API_HOST","\"http://114.55.51.246:8080/xianshi\"")
+//            buildConfigField("String","API_HOST","\"http://120.26.70.146:8080/xianshitest\"")
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            buildConfigField("String","API_HOST","\"http://120.26.70.146:8080/xianshitest\"")
+        }
+
+
+    }
+
+}
+def JacksonVersion = '2.8.7'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.7.0'
+    compile 'com.squareup.okio:okio:1.12.0'
+    compile "com.fasterxml.jackson.core:jackson-core:$JacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$JacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$JacksonVersion"
+
+}

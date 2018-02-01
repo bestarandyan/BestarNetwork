@@ -4,5 +4,6 @@
 /.idea/libraries
 .DS_Store
 /build
+.gradle/4.1
 /captures
 .externalNativeBuild

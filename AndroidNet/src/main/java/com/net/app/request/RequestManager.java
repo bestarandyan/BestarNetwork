@@ -29,6 +29,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
+import static com.net.app.Utils.JsonUtils.getFieldName;
+import static com.net.app.Utils.JsonUtils.getMethodList;
+
 /**
  * Created by liuxingxing on 2017/11/16.
  */
@@ -157,14 +160,11 @@ public class RequestManager<T> {
         requestBody.append("{");
         try {
             Method[] methods = netRequest.getClass().getDeclaredMethods();
-
+            Method[] superMethods = netRequest.getClass().getSuperclass().getDeclaredMethods();
             ArrayList<Method> methodList = new ArrayList<>();
-            for (int i=0 ;i< methods.length;i++) {
-                Method method = methods[i];
-                if (method.getName().startsWith("get")) {
-                    methodList.add(method);
-                }
-            }
+            methodList.addAll(getMethodList(methods));
+            methodList.addAll(getMethodList(superMethods));
+
 
             for (int j=0;j<methodList.size();j++){
                 Object value = methodList.get(j).invoke(netRequest, (Object[]) null);
@@ -193,10 +193,7 @@ public class RequestManager<T> {
         }
         return getFieldName(methodName);
     }
-    private String getFieldName(String methodName){
-        String fistName = methodName.substring(3,4).toLowerCase();
-        return fistName + methodName.substring(4);
-    }
+
 
     /**
      * 通过json方式获取Builder

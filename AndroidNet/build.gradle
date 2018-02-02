@@ -19,14 +19,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            buildConfigField("String","API_HOST","\"http://114.55.51.246:8080/xianshi\"")
+//            buildConfigField("String","API_HOST","\"http://114.55.51.246:8080/xianshi\"")
 //            buildConfigField("String","API_HOST","\"http://120.26.70.146:8080/xianshitest\"")
         }
 
         debug {
             debuggable true
             minifyEnabled false
-            buildConfigField("String","API_HOST","\"http://120.26.70.146:8080/xianshitest\"")
+//            buildConfigField("String","API_HOST","\"http://120.26.70.146:8080/xianshitest\"")
         }
 
 

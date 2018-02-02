@@ -52,7 +52,7 @@ public class RequestManager<T> {
      */
     private String getUrl(EndpointRequest netRequest) {
         StringBuffer httpUrl = new StringBuffer();
-        String host = BuildConfig.API_HOST;
+        String host = netRequest.getHost();
         httpUrl.append(host);
         RequestConfig config = netRequest.getClass().getAnnotation(RequestConfig.class);
         if (config == null) return "";

@@ -2,6 +2,8 @@ package com.net.app.request;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.net.app.interfaces.ErrorResponse;
 import com.net.app.interfaces.RequestInterface;
@@ -43,6 +45,8 @@ public class RequestCallBack<T> implements Callback {
 
 
                 ObjectMapper objectMapper = new ObjectMapper();
+                objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+                objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
                 T object = objectMapper.readValue(json, clazz);
 
                 requestInterface.onReceivedData(object);

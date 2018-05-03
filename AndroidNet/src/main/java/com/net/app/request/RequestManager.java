@@ -205,6 +205,7 @@ public class RequestManager<T> {
         FormBody.Builder builder = new FormBody.Builder();
         ObjectMapper mMapper = new ObjectMapper();
         mMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        mMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
         String bodyStr;
         try {
             bodyStr = mMapper.writeValueAsString(netRequest);
@@ -225,6 +226,7 @@ public class RequestManager<T> {
         RequestBody requestBody = null;
         ObjectMapper mMapper = new ObjectMapper();
         mMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        mMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
         String bodyStr;
         try {
             bodyStr = mMapper.writeValueAsString(netRequest);

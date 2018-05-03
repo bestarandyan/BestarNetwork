@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidNet/AndroidNet.iml" filepath="$PROJECT_DIR$/AndroidNet/AndroidNet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BestarNetworkManager.iml" filepath="$PROJECT_DIR$/BestarNetworkManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BestarNetwork.iml" filepath="$PROJECT_DIR$/BestarNetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
